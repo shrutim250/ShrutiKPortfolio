@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shruti Kumari | Web Developer</title>
+    <link rel="icon" href="your-favicon.ico" type="image/x-icon"> <!-- Add favicon -->
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #2b2d33;
+            color: #fff;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(43, 45, 51, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo svg {
+            margin-right: 10px;
+            color: #1d87f7;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #1d87f7;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 150px 0 100px;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-image {
+            width: 50%;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .title-line {
+            width: 120px;
+            height: 3px;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            display: block;
+        }
+
+        .scroll-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: #1d87f7;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(5px);
+        }
+
+
+        .resume-btn {
+            display: inline-block;
+            background-color: #1d87f7; /* Match existing styles */
+            color: #fff; /* Text color */
+            padding: 10px 25px; /* Padding */
+            border-radius: 25px; /* Rounded corners */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold text */
+            transition: background-color 0.3s ease; /* Transition effect */
+        }
+        
+        .resume-btn:hover {
+            background-color: #4da3ff; /* Change color on hover */
+        }
+
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+            background-color: #232529;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #1d87f7;
+            color: #1d87f7;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #1d87f7;
+            color: #fff;
+        }
+
+        .btn .arrow {
+            margin-left: 8px;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 100px 0;
+            background-color: #2b2d33;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background-color: #232529;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .project-desc {
+            color: #aaa;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            color: #1d87f7;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: color 0.3s;
+            margin-top: auto;
+        }
+
+        .project-link:hover {
+            color: #4da3ff;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 100px 0;
+            background-color: #232529;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background-color: #2b2d33;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            color: #1d87f7;
+            margin-bottom: 15px;
+        }
+
+        .skill-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .skill-desc {
+            color: #aaa;
+        }
+
+        /* Experience Section */
+        #experience {
+            padding: 100px 0;
+        }
+
+        .timeline {
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            width: 2px;
+            height: 100%;
+            background-color: #1d87f7;
+        }
+
+        .timeline-item {
+            padding-left: 50px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background-color: #1d87f7;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .timeline-date {
+            color: #1d87f7;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-location {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+       
+/* Contact Section */
+#contact {
+    padding: 100px 0; /* Maintain padding for spacing */
+    background-color: #232529;
+    color: white;
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    background-color: #2e3035; /* Darker background for contrast */
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: fit-content; /* Fit to content */
+    transition: background-color 0.3s ease-in-out;
+    margin: 10px 0; /* Space between items */
+}
+
+.contact-item:hover {
+    background-color: #3a3d42; /* Slightly darker on hover */
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #1d87f7; /* Primary color for icons */
+    border-radius: 50%; /* Circular icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px; /* Space between icon and text */
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-icon svg, 
+.contact-icon img {
+    width: 20px; /* Optimal size for icons */
+    height: 20px;
+    fill: white; /* Color of SVG or image */
+}
+
+.contact-item a {
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    font-size: 16px; /* Standard font size for readability */
+    font-weight: 500; /* Slightly bolder */
+}
+
+.contact-item a:hover {
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center; /* Center align social links */
+    margin-top: 40px; /* Space above social links */
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #2b2d33; /* Consistent background color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px; /* Space between social icons */
+    color: #fff; /* Default icon color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #1d87f7; /* Highlight color on hover */
+}
+        /* Social Links */
+        .social-links {
+            display: flex;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #2b2d33;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #1d87f7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            background-color: #1f2023;
+        }
+
+        /* Responsive */ 
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+            }
+
+            .hero-text, .hero-image {
+                width: 100%;
+                text-align: center;
+            }
+
+            .title-line {
+                margin: 0 auto 30px;
+            }
+
+            .hero-image {
+                margin-bottom: 50px;
+            }
+
+            .scroll-btn {
+                margin: 40px auto 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 18L22 12L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 6L2 12L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Shruti K
+                </div>
+                <div class="nav-links">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="hamburger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="title-line"></div>
+                <h1>
+                    Hii😊,
+                    <span> I'm Shruti</span>
+                </h1>
+                <p>A pre-final year B.Tech student at SRM University, Sonipat, with strong foundations in software development. I'm currently working with ML technologies and have a passion for creating innovative solutions.</p>
+                
+                <div class="scroll-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 14L12 21L5 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 7L12 14L5 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <!-- Add View My Resume Button -->
+                <a href="./Shruti_Resume.pdf" target="_blank" class="btn resume-btn" style="display: inline-block; margin-top: 20px;">
+                    View My Resume
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="./shruti.jpg" alt="Professional profile photo of Shruti Kumari">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">ABOUT ME</div>
+                <div class="section-content">
+                    <p>I am a pre-final year B.Tech student at SRM University, Sonipat, specializing in Computer Science. My educational journey has equipped me with strong foundations in software development and programming fundamentals.</p>
+                    <p>I am passionate about web development and have worked on multiple projects that have allowed me to apply my technical knowledge to create innovative solutions. I'm continuously learning and growing in a professional environment, and I'm eager to take on new challenges in the tech industry.</p>
+                    <a href="#contact" class="btn">
+                        LEARN MORE
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">MY WORK</div>
+                <div class="section-content">
+                    <p>I've worked on several projects throughout my academic journey, leveraging various technologies to create functional and user-friendly applications. Here are some of my notable projects.</p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./download.jpeg" alt="GrocerEase Project">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">GrocerEase</h3>
+                        <p class="project-desc">A full-stack responsive grocery delivery web application developed using the MERN stack. Features include integrated payment functionality and dedicated portals for both admins and users.</p>
+                        <a href="https://github.com/shrutim250/Grocery-del-application" class="project-link" target="_blank">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./news.jpeg" alt="News Project">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">NewsNest</h3>
+                        <p class="project-desc">A React.js news web application that provides customized news content based on user preferences. The frontend is integrated with APIs to ensure regular news updates and accurate information delivery.</p>
+                        <a href="https://github.com/shrutim250/news-app" class="project-link" target="_blank">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./CarRentalSystem.jpeg" alt="CarRentalSystem Project">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Car Rental System</h3>
+                        <p class="project-desc">A Java-based project using AWT, SWING, and Neembee for the GUI interface. Implements a secure login system, car rental functionality, and automated price calculation based on selection.</p>
+                        <a href="https://github.com/shrutim250/CarRentalSystemFormatted" class="project-link" target="_blank">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://github.com/shrutim250" class="btn" target="_blank">
+                    BROWSE PORTFOLIO
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">MY SKILLS</div>
+                <div class="section-content">
+                    <p>Throughout my academic and professional journey, I've developed a diverse set of technical and soft skills that enable me to tackle complex problems and deliver quality solutions.</p>
+                </div>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-title">Web Development</div>
+                    <div class="skill-desc">React.js, MERN Stack, Frontend Development, Responsive Design</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-title">Programming</div>
+                    <div class="skill-desc">C, Java, Python, Object-Oriented Programming</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-title">Data Structures & Algorithms</div>
+                    <div class="skill-desc">Problem Solving, Algorithm Design, Optimization</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-title">AI & ML</div>
+                    <div class="skill-desc">Fundamentals of Artificial Intelligence and Machine Learning</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <div class="skill-title">Project Management</div>
+                    <div class="skill-desc">Strategic Planning, Implementation, Leadership</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🗣️</div>
+                    <div class="skill-title">Languages</div>
+                    <div class="skill-desc">English, Hindi, French</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">MY EXPERIENCE</div>
+                <div class="section-content">
+                    <p>My academic achievements, professional experience, and positions of responsibility have helped me develop a well-rounded skill set and practical knowledge in my field.</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jul 2024 - Sep 2024</div>
+                    <div class="timeline-title">Web Development Intern</div>
+                    <div class="timeline-location">Next24tech Technology & Services</div>
+                    <div class="timeline-content">
+                        <p>Worked on and developed real-world projects, applying web development skills, teamwork, addressing user problems, and UI/UX design principles.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-title">GDSC Member, Women Techmakers</div>
+                    <div class="timeline-location">SRM University, Haryana</div>
+                    <div class="timeline-content">
+                        <p>Actively participated in community initiatives, workshops, and events focused on promoting diversity in technology and enhancing technical skills.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-title">Bachelor of Technology in Computer Science</div>
+                    <div class="timeline-location">SRM University, Sonipat</div>
+                    <div class="timeline-content">
+                        <p>Currently pursuing B.Tech with focus on software development, programming, and computer science fundamentals including OOPS, DBMS, and OS.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2019 - 2020</div>
+                    <div class="timeline-title">Higher School Education</div>
+                    <div class="timeline-location">Shaheed Capt. Sanjeev Dahiya</div>
+                    <div class="timeline-content">
+                        <p>Secured 94.2% in CBSE Board Examinations with technical subjects including Python Programming and MySQL.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2017 - 2018</div>
+                    <div class="timeline-title">Secondary School Education</div>
+                    <div class="timeline-location">Manvi Public School</div>
+                    <div class="timeline-content">
+                        <p>Secured 95.4% in CBSE Board Examinations with Additional subject of Financial Marketing Management.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">FOLLOW ME</div>
+                <div class="section-content">
+                    <p>Feel free to reach out to me for collaboration opportunities, project inquiries, or just to connect!</p>
+                </div>
+            </div>
+
+            <!-- Add social media links section -->
+            <div style="display: flex; justify-content: center; margin-top: 40px;">
+                <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="social-link" style="margin-right: 15px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://github.com/shrutim250" target="_blank" class="social-link" style="margin-right: 15px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="mailto:shrutikm53@gmail.com" target="_blank" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-20M2 4h20v16H2z" />
+                        <path d="M2 4l10 7 10-7" />
+                    </svg>
+                    <span style="margin-left: 8px; color: white; font-size: 16px; font-weight: 500;"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Shruti k. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
